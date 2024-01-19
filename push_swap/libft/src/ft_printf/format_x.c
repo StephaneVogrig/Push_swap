@@ -1,17 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing_test.c                                     :+:      :+:    :+:   */
+/*   format_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 20:02:24 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/15 20:07:18 by svogrig          ###   ########.fr       */
+/*   Created: 2024/01/02 20:52:36 by stephane          #+#    #+#             */
+/*   Updated: 2024/01/12 19:51:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* doit retourner error :
-"" chaine vide
-"                    " chaine uniquement constitue de space
-"1+2" deux nombre sana espace entre eux
-"1e2" chaine contenant autre chose que des digit des espaces ou des signes + -
+#include "ft_printf.h"
+
+int	format_x(t_ui64 nbr, t_spec *spec, t_buffer *buffer)
+{
+	char				str[MAX_DIGIT_HEXA];
+	t_nbrstr			nbrstr;
+
+	nbrstr.is_zero = nbr == 0;
+	nbrstr.str = ui64_to_str_hexalower(str, nbr);
+	nbrstr.nbr_digit = str + MAX_DIGIT_HEXA - nbrstr.str;
+	if (spec->flag_hash && nbr > 0)
+		spec->prefix = 'x';
+	else
+		spec->prefix = '\0';
+	nbrstr_to_buffer(buffer, spec, &nbrstr);
+	return (1);
+}

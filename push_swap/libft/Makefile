@@ -6,7 +6,7 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 02:59:52 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/15 00:59:16 by svogrig          ###   ########.fr        #
+#    Updated: 2024/01/19 14:28:50 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,9 @@ SRCS 		:=	char/ft_isalnum.c\
 				char/ft_isprint.c\
 				char/ft_toupper.c \
 				char/ft_tolower.c \
-				ft_atoi.c \
-				ft_itoa.c \
+				int/ft_atoi.c \
+				int/ft_itoa.c \
+				int/si32_to_decstr_offset.c \
 				lst/ft_lstadd_back.c \
 				lst/ft_lstadd_front.c \
 				lst/ft_lstclear.c \
@@ -50,6 +51,7 @@ SRCS 		:=	char/ft_isalnum.c\
 				put/ft_putstr_fd.c \
 				str/ft_split.c \
 				str/ft_strchr.c \
+				str/ft_strcmp.c \
 				str/ft_strdup.c \
 				str/ft_striteri.c \
 				str/ft_strjoin.c \
@@ -61,7 +63,29 @@ SRCS 		:=	char/ft_isalnum.c\
 				str/ft_strnstr.c \
 				str/ft_strrchr.c \
 				str/ft_strtrim.c \
-				str/ft_substr.c
+				str/ft_substr.c \
+				str/strcpy_offset.c \
+				ft_printf/ft_printf.c \
+				ft_printf/buffer.c \
+				ft_printf/format_c.c \
+				ft_printf/format_f.c \
+				ft_printf/format_i.c \
+				ft_printf/format_p.c \
+				ft_printf/format_purcent.c \
+				ft_printf/format_s.c \
+				ft_printf/format_u.c \
+				ft_printf/format_x.c \
+				ft_printf/format_xupper.c \
+				ft_printf/field.c \
+				ft_printf/float64_get.c \
+				ft_printf/nbr_digit.c \
+				ft_printf/nbrstr_to_buffer.c \
+				ft_printf/parsing.c \
+				ft_printf/set_specification.c \
+				ft_printf/spec_str_to_int.c \
+				ft_printf/ui64_to_str.c \
+				ft_printf/vs_10pow.c \
+				unit_test/unit_test.c
 
 SRCS		:=	$(SRCS:%=$(SRC_DIR)/%)
 
@@ -93,7 +117,7 @@ $(NAME) : $(OBJS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -g -c -o $@ $<
 	$(info created: $@)
 
 -include $(DEPS)

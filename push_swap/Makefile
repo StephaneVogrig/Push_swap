@@ -6,7 +6,7 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/23 02:54:06 by svogrig          ###   ########.fr        #
+#    Updated: 2024/01/23 03:26:18 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ SRCS		:=	operation_push.c \
 				push_swap_list.c \
 				unitest/psut_list_utils.c \
 				push_swap_stack.c \
-				push_swap_index.c
+				push_swap_index.c \
+				push_swap_sort.c
 
 PS_SRCS		:=	main.c $(SRCS)
 PS_SRCS		:=	$(PS_SRCS:%=$(SRC_DIR)/%)
@@ -59,6 +60,7 @@ UT_SRCS		:=	main.c \
 				tests/push_tests.c \
 				tests/reverse_rotate_tests.c \
 				tests/rotate_tests.c \
+				tests/is_sorted_tests.c \
 				tests/ps_index_tests.c
 
 UT_SRCS		:=	$(UT_SRCS:%=$(UT_SRCS_DIR)/%)

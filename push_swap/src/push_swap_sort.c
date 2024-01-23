@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 17:16:11 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 03:24:56 by svogrig          ###   ########.fr       */
+/*   Created: 2024/01/23 03:17:39 by svogrig           #+#    #+#             */
+/*   Updated: 2024/01/23 03:18:07 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_unit_test.h"
+#include "push_swap.h"
 
-int	main(void)
+int	is_sorted(t_psstack *stack)
 {
-	si32_to_decstr_offset_tests();
-	ps_list_new_tests();
-	psut_list_to_str_tests();
-	number_to_stack_tests();
-	arg_to_stack_tests();
-	push_tests();
-	reverse_rotate_tests();
-	rotate_tests();
-	swap_head_tests();
-	ps_index_tests();
-	is_sorted_tests();
-	return (0);
+	int			nbr;
+	t_pslist	*current;
+
+	if (stack->nbr < 2)
+		return (TRUE);
+	nbr = stack->first->nbr;
+	current = stack->first->next;
+	while (current)
+	{
+		if (current->nbr < nbr)
+			return (FALSE);
+		nbr = current->nbr;
+		current = current->next;
+	}
+	return (TRUE);
 }

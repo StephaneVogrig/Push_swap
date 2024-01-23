@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:17:33 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 02:42:03 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ void	swap_head(t_psstack *stack);
 void	sa(t_psstack *stack_a);
 void	sb(t_psstack *stack_b);
 void	ss(t_psstack *stack_a, t_psstack *stack_b);
+
+/* push swap index -----------------------------------------------------------*/
+void	ps_index(t_pslist *list);
 
 #endif

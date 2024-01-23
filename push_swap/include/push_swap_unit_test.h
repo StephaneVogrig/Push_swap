@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:13:57 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:00:10 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 02:54:47 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ typedef struct s_psut_data{
 }	t_psut_data;
 
 void		psut_list_print(t_pslist *list, const char *sep, const char *term);
+int			psut_list_index_to_str_len(t_pslist *list, const char *sep);
 int			psut_list_to_str_len(t_pslist *list, const char *sep);
+char		*psut_list_index_to_str(t_pslist *list, const char *sep);
 char		*psut_list_to_str(t_pslist *list, const char *sep);
 
 t_psut_data	unit_test_data_init(char *stack_a, char *stack_b, \
@@ -40,6 +42,7 @@ void		swap_head_tests(void);
 void		push_tests(void);
 void		rotate_tests(void);
 void		reverse_rotate_tests(void);
+void		ps_index_tests(void);
 
 void		si32_to_decstr_offset_tests(void);
 

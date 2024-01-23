@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 17:16:11 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:00:37 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 02:53:59 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	main(void)
 	reverse_rotate_tests();
 	rotate_tests();
 	swap_head_tests();
+	ps_index_tests();
 	return (0);
 }

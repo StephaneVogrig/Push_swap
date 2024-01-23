@@ -1,2 +1,5 @@
 *.build
 *.vscode
+*libft.a
+push_swap
+push_swap_unitest

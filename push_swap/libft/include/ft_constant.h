@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy_offset.c                                    :+:      :+:    :+:   */
+/*   ft_constant.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 14:04:09 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:09:30 by svogrig          ###   ########.fr       */
+/*   Created: 2024/01/17 18:45:03 by svogrig           #+#    #+#             */
+/*   Updated: 2024/01/23 00:59:47 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// copy the string src in string dest
-// dest must have enough space to receive src
-// return a pointer on the the next character in dest after copy 
-char	*strcpy_offset(char *dest, const char *src)
-{
-	while (*src)
-		*dest++ = *src++;
-	return (dest);
-}
+#ifndef FT_CONSTANT_H
+# define FT_CONSTANT_H
+
+# ifndef INT_MIN
+#  define INT_MIN -2147483648
+# endif
+# ifndef INT_MAX
+#  define INT_MAX 2147483647
+# endif
+# ifndef TRUE
+#  define TRUE 1
+# endif
+# ifndef FALSE
+#  define FALSE 0
+# endif
+# ifndef SUCCESS
+#  define SUCCESS 1
+# endif
+# ifndef ERROR
+#  define ERROR 0
+# endif
+
+#endif

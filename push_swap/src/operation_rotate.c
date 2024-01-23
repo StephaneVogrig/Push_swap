@@ -6,17 +6,18 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:15:45 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/19 15:17:48 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/22 21:59:15 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_stack *stack)
+void	rotate(t_psstack *stack)
 {
-	t_i32list	*temp;
-	
-ft_printf("start rotates\n");
+	t_pslist	*temp;
+
+	if (stack->nbr < 2)
+		return ;
 	temp = stack->first;
 	stack->first = stack->first->next;
 	stack->last->next = temp;
@@ -24,19 +25,19 @@ ft_printf("start rotates\n");
 	stack->last->next = NULL;
 }
 
-void	ra(t_stack *stack_a)
+void	ra(t_psstack *stack_a)
 {
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
 
-void	rb(t_stack *stack_b)
+void	rb(t_psstack *stack_b)
 {
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
 
-void	rr(t_stack *stack_a, t_stack *stack_b)
+void	rr(t_psstack *stack_a, t_psstack *stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);

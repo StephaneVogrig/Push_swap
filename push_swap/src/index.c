@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 23:10:10 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:19:25 by svogrig          ###   ########.fr       */
+/*   Created: 2024/01/22 02:31:32 by svogrig           #+#    #+#             */
+/*   Updated: 2024/01/22 22:49:49 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "push_swap_unit_test.h"
 
-int	sort_ps_stack(t_psstack *stack_a)
+void	index(t_pslist *list)
 {
-	psut_list_print(stack_a->first, "\n", "\n");
-	return (SUCCESS);
+	t_pslist	*temp;
+
+	if (stack_src->nbr == 0)
+		return ;
+	temp = stack_src->first;
+	stack_src->first = temp->next;
+	temp->next = stack_dest->first;
+	stack_dest->first = temp;
 }
 
-int	main(int argc, char **argv)
+void	pa(t_psstack *stack_a, t_psstack *stack_b)
 {
-	t_psstack	stack;
-	int			ok;
+	push(stack_a, stack_b);
+	ft_printf("pa\n");
+}
 
-	if (argc == 1)
-		return (0);
-	ps_stack_init(&stack);
-	ok = args_to_stack(argc, argv, &stack);
-	if (ok)
-		ok = sort_ps_stack(&stack);
-	if (!ok)
-		write(2, "Error\n", 6);
-	ps_stack_free(&stack);
-	return (0);
+void	pb(t_psstack *stack_a, t_psstack *stack_b)
+{
+	push(stack_b, stack_a);
+	ft_printf("pb\n");
 }

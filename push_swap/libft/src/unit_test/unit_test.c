@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 22:10:46 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/18 22:37:41 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 00:10:48 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	unit_test_print_result(const char *title, int field_width)
 {
 	ft_printf("%-*s ", field_width, title);
-	ft_printf("%3i / ",  unit_test(get_success));
-	ft_printf("%3i tests passed\n",  unit_test(get_tests));
+	ft_printf("%3i / ", unit_test(get_success));
+	ft_printf("%3i tests passed\n", unit_test(get_tests));
 }
 
 int	unit_test(t_action action)

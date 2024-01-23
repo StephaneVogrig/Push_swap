@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/19 13:32:07 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 00:17:33 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,44 @@
 # include <stdio.h>
 # include <unistd.h>
 # include "libft.h"
-# include "i32list.h"
+# include "push_swap_list.h"
 
-typedef struct	s_stack {
-	t_i32list	*first;
-	t_i32list	*last;
+typedef struct s_psstack{
+	t_pslist	*first;
+	t_pslist	*last;
 	int			nbr;
-}	t_stack;
+}	t_psstack;
 
-int		args_to_stack(int argc, char **argv, t_stack *stack);
-int		arg_to_stack(char *str, t_stack *stack);
-char	*number_to_stack(char *str, t_stack *stack);
+int		args_to_stack(int argc, char **argv, t_psstack *stack);
+int		arg_to_stack(char *str, t_psstack *stack);
+char	*number_to_stack(char *str, t_psstack *stack);
 
 /* stack ---------------------------------------------------------------------*/
-void	stack_init(t_stack	*stack);
-int 	stack_add(int n, t_stack *stack);
-void	stack_free(t_stack *stack);
+void	ps_stack_init(t_psstack	*stack);
+int		ps_stack_add(int n, t_psstack *stack);
+void	ps_stack_free(t_psstack *stack);
 
 /* opertion push -------------------------------------------------------------*/
-void	push(t_stack *stack_1, t_stack *stack_2);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+void	push(t_psstack *stack_1, t_psstack *stack_2);
+void	pa(t_psstack *stack_a, t_psstack *stack_b);
+void	pb(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion reverse rotate ---------------------------------------------------*/
-void	push(t_stack *stack_1, t_stack *stack_2);
-void	pa(t_stack *stack_a, t_stack *stack_b);
-void	pb(t_stack *stack_a, t_stack *stack_b);
+void	reverse_rotate(t_psstack *stack);
+void	rra(t_psstack *stack_a);
+void	rrb(t_psstack *stack_b);
+void	rrr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion rotate -----------------------------------------------------------*/
-void	rotate(t_stack *stack);
-void	ra(t_stack *stack_a);
-void	rb(t_stack *stack_b);
-void	rr(t_stack *stack_a, t_stack *stack_b);
+void	rotate(t_psstack *stack);
+void	ra(t_psstack *stack_a);
+void	rb(t_psstack *stack_b);
+void	rr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion swap -------------------------------------------------------------*/
-void	swap_head(t_stack *stack);
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	swap_head(t_psstack *stack);
+void	sa(t_psstack *stack_a);
+void	sb(t_psstack *stack_b);
+void	ss(t_psstack *stack_a, t_psstack *stack_b);
 
 #endif

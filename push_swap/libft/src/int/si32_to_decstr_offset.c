@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 13:43:23 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/19 14:28:58 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 00:09:53 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	*si32_to_decstr_offset(char *str, int n)
 	{
 		mul = vs_10pow(nbr_digit - 1);
 		digit = nbr / (mul);
-		nbr -= digit * mul; 
+		nbr -= digit * mul;
 		nbr_digit--;
 		*str++ = digit + '0';
 	}

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:04:55 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/19 14:41:07 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/23 00:47:44 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 # include "vs_type.h"
-# include "constante.h"
+# include "ft_constant.h"
 # include "ft_printf.h"
 # include "unit_test.h"
 

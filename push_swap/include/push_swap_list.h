@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy_offset.c                                    :+:      :+:    :+:   */
+/*   push_swap_list.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 14:04:09 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:09:30 by svogrig          ###   ########.fr       */
+/*   Created: 2024/01/17 16:09:25 by svogrig           #+#    #+#             */
+/*   Updated: 2024/01/23 00:18:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// copy the string src in string dest
-// dest must have enough space to receive src
-// return a pointer on the the next character in dest after copy 
-char	*strcpy_offset(char *dest, const char *src)
-{
-	while (*src)
-		*dest++ = *src++;
-	return (dest);
-}
+#ifndef PUSH_SWAP_LIST_H
+# define PUSH_SWAP_LIST_H
+
+# include "libft.h"
+
+typedef struct s_pslist{
+	int					nbr;
+	int					index;
+	struct s_pslist		*prev;
+	struct s_pslist		*next;
+}	t_pslist;
+
+t_pslist	*ps_list_new(int n);
+void		ps_list_free(t_pslist **list);
+int			is_in_ps_list(int n, t_pslist *list);
+char		*list_to_str(t_pslist *list, const char *sep);
+
+#endif

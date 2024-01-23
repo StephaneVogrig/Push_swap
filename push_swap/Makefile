@@ -6,7 +6,7 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/19 15:10:18 by svogrig          ###   ########.fr        #
+#    Updated: 2024/01/23 00:06:05 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,13 +32,14 @@ INCS		:=	include \
 
 SRC_DIR		:=	src
 
-SRCS		:=	i32list.c \
-				operation_push.c \
+SRCS		:=	operation_push.c \
 				operation_reverse_rotate.c \
 				operation_rotate.c \
 				operation_swap.c \
 				parsing.c \
-				stack.c
+				push_swap_list.c \
+				unitest/psut_list_utils.c \
+				push_swap_stack.c
 
 PS_SRCS		:=	main.c $(SRCS)
 PS_SRCS		:=	$(PS_SRCS:%=$(SRC_DIR)/%)
@@ -47,13 +48,16 @@ UT_NAME		:=	$(NAME)_unitest
 UT_SRCS_DIR	:= 	unitest
 
 UT_SRCS		:=	main.c \
-				arg_to_stack_tests.c \
-				i32list_new_tests.c \
-				number_to_stack_tests.c \
-				si32_to_decstr_offset_tests.c \
-				i32list_to_str_tests.c \
-				swap_head_tests.c \
-				rotate_tests.c
+				psut_data.c \
+				tests/arg_to_stack_tests.c \
+				tests/ps_list_new_tests.c \
+				tests/number_to_stack_tests.c \
+				tests/si32_to_decstr_offset_tests.c \
+				tests/psut_list_to_str_tests.c \
+				tests/swap_head_tests.c \
+				tests/push_tests.c \
+				tests/reverse_rotate_tests.c \
+				tests/rotate_tests.c
 
 UT_SRCS		:=	$(UT_SRCS:%=$(UT_SRCS_DIR)/%)
 UT_SRCS		:=	$(SRCS) $(UT_SRCS) 

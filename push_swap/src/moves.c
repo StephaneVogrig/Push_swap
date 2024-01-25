@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:30:56 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 04:20:55 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 15:37:52 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	moves_init(t_moves *move)
 	move->nbr = 0;
 }
 
-void	move_reduce_r(t_moves *move)
+void	moves_reduce_r(t_moves *move)
 {
 	if (move->ra && move->rb)
 	{
@@ -48,7 +48,7 @@ void	move_reduce_r(t_moves *move)
 	}
 }
 
-void	move_reduce_rr(t_moves *move)
+void	moves_reduce_rr(t_moves *move)
 {
 	if (move->rra && move->rrb)
 	{
@@ -67,16 +67,16 @@ void	move_reduce_rr(t_moves *move)
 	}
 }
 
-void	move_count(t_moves *move)
+void	moves_count(t_moves *move)
 {
 	move->nbr += move->sa;
-	move->nbr += move->ra;
-	move->nbr += move->rra;
 	move->nbr += move->sb;
-	move->nbr += move->rb;
-	move->nbr += move->rrb;
 	move->nbr += move->ss;
+	move->nbr += move->ra;
+	move->nbr += move->rb;
 	move->nbr += move->rr;
+	move->nbr += move->rra;
+	move->nbr += move->rrb;
 	move->nbr += move->rrr;
 	move->nbr += move->pa;
 	move->nbr += move->pb;

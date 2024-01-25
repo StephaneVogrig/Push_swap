@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 04:59:59 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 16:31:59 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,57 +39,62 @@ typedef struct s_moves{
 	int	nbr;
 }	t_moves;
 
-int		args_to_stack(int argc, char **argv, t_psstack *stack);
-int		arg_to_stack(char *str, t_psstack *stack);
-char	*number_to_stack(char *str, t_psstack *stack);
+int				args_to_stack(int argc, char **argv, t_psstack *stack);
+int				arg_to_stack(char *str, t_psstack *stack);
+char			*number_to_stack(char *str, t_psstack *stack);
 
 /* stack ---------------------------------------------------------------------*/
-void	ps_stack_init(t_psstack	*stack);
-int		ps_stack_add(int n, t_psstack *stack);
-void	ps_stack_free(t_psstack *stack);
+void			ps_stack_init(t_psstack	*stack);
+int				ps_stack_add(int n, t_psstack *stack);
+void			ps_stack_free(t_psstack *stack);
 
 /* opertion push -------------------------------------------------------------*/
-void	push(t_psstack *stack_1, t_psstack *stack_2);
-void	pa(t_psstack *stack_a, t_psstack *stack_b);
-void	pb(t_psstack *stack_a, t_psstack *stack_b);
+void			push(t_psstack *stack_1, t_psstack *stack_2);
+void			pa(t_psstack *stack_a, t_psstack *stack_b);
+void			pb(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion reverse rotate ---------------------------------------------------*/
-void	reverse_rotate(t_psstack *stack);
-void	rra(t_psstack *stack_a);
-void	rrb(t_psstack *stack_b);
-void	rrr(t_psstack *stack_a, t_psstack *stack_b);
+void			reverse_rotate(t_psstack *stack);
+void			rra(t_psstack *stack_a);
+void			rrb(t_psstack *stack_b);
+void			rrr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion rotate -----------------------------------------------------------*/
-void	rotate(t_psstack *stack);
-void	ra(t_psstack *stack_a);
-void	rb(t_psstack *stack_b);
-void	rr(t_psstack *stack_a, t_psstack *stack_b);
+void			rotate(t_psstack *stack);
+void			ra(t_psstack *stack_a);
+void			rb(t_psstack *stack_b);
+void			rr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion swap -------------------------------------------------------------*/
-void	swap_head(t_psstack *stack);
-void	sa(t_psstack *stack_a);
-void	sb(t_psstack *stack_b);
-void	ss(t_psstack *stack_a, t_psstack *stack_b);
+void			swap_head(t_psstack *stack);
+void			sa(t_psstack *stack_a);
+void			sb(t_psstack *stack_b);
+void			ss(t_psstack *stack_a, t_psstack *stack_b);
 
 /* push swap index -----------------------------------------------------------*/
-void	ps_index(t_pslist *list);
+void			ps_index(t_pslist *list);
 
 /* push swap sort ------------------------------------------------------------*/
-int		is_sorted(t_psstack *stack);
-void	ps_sort_2(t_psstack *stack);
-void	ps_sort_3(t_psstack *stack);
-void	ps_sort_5(t_psstack *stack);
-void	ps_sort(t_psstack *stack);
+int				is_sorted(t_psstack *stack);
+void			ps_sort_2(t_psstack *stack);
+void			ps_sort_3(t_psstack *stack);
+void			ps_sort_5(t_psstack *stack);
+void			ps_sort(t_psstack *stack);
 
 /* moves ---------------------------------------------------------------------*/
-void	moves_init(t_moves *move);
-void	move_reduce_r(t_moves *move);
-void	move_reduce_rr(t_moves *move);
-void	move_count(t_moves *move);
-void	move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
+void			moves_init(t_moves *move);
+void			moves_reduce_r(t_moves *move);
+void			moves_reduce_rr(t_moves *move);
+void			moves_count(t_moves *move);
+void			move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
 
-/* moves b to a --------------------------------------------------------------*/
-int		compute_i(t_psstack *stack, int ref_nbr);
-void	move_b_to_a(t_psstack *stack_a, t_psstack *stack_b);
+/* moves btoa ----------------------------------------------------------------*/
+int				compute_i(t_psstack *stack, int ref_nbr);
+void			move_btoa(t_psstack *stack_a, t_psstack *stack_b);
+void			move_min_to_top(t_psstack *stack);
+
+/* moves btoa ----------------------------------------------------------------*/
+t_pslist_pos	position_of_min(t_psstack *stack);
+int				position_insert_nbr(t_psstack *stack, int nbr);
 
 #endif

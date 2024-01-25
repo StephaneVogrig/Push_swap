@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:05:51 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/22 22:43:39 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:50:06 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,13 @@ int	is_in_ps_list(int n, t_pslist *list)
 		list = list->next;
 	}
 	return (FALSE);
+}
+
+t_pslist_pos	pslist_pos_init(void)
+{
+	t_pslist_pos	pslist_pos;
+
+	pslist_pos.i = 0;
+	pslist_pos.ptr = NULL;
+	return (pslist_pos);
 }

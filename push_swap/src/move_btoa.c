@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_b_to_a.c                                      :+:      :+:    :+:   */
+/*   move_btoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:14:15 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 04:20:38 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 18:49:22 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ int	compute_i(t_psstack *stack, int ref_nbr)
 
 void	compute_move_in_a(t_moves *move, int nbr, t_psstack *stack)
 {
-	t_pslist	*current;
 	int			i;
+
+	t_pslist	*current;
 
 	if (stack->nbr == 0)
 		return ;
@@ -53,6 +54,9 @@ void	compute_move_in_a(t_moves *move, int nbr, t_psstack *stack)
 	}
 	if (i == 0)
 		i = compute_i(stack, nbr);
+
+	// i = position_insert_nbr(stack, nbr);
+
 	if (i <= (stack->nbr / 2))
 		move->ra = i;
 	else
@@ -74,13 +78,13 @@ t_moves	compute_move(t_psstack *stack_a, int stack_b_nbr, int i, int nbr)
 		move.rrb = stack_b_nbr - i;
 	move.pa = 1;
 	compute_move_in_a(&move, nbr, stack_a);
-	move_reduce_r(&move);
-	move_reduce_rr(&move);
-	move_count(&move);
+	moves_reduce_r(&move);
+	moves_reduce_rr(&move);
+	moves_count(&move);
 	return (move);
 }
 
-static t_moves	move_b_to_a_compute(t_psstack *stack_a, t_psstack *stack_b)
+static t_moves	best_move_btoa(t_psstack *stack_a, t_psstack *stack_b)
 {
 	t_pslist	*current;
 	int			i;
@@ -104,13 +108,31 @@ static t_moves	move_b_to_a_compute(t_psstack *stack_a, t_psstack *stack_b)
 	return (best_move);
 }
 
-void	move_b_to_a(t_psstack *stack_a, t_psstack *stack_b)
+void	move_btoa(t_psstack *stack_a, t_psstack *stack_b)
 {
 	t_moves	move;
 
 	while (stack_b->nbr)
 	{
-		move = move_b_to_a_compute(stack_a, stack_b);
+		move = best_move_btoa(stack_a, stack_b);
 		move_do(&move, stack_a, stack_b);
+	}
+}
+
+void	move_min_to_top(t_psstack *stack)
+{
+	int	i;
+	t_pslist_pos	min;
+
+	min = position_of_min(stack);
+	i = min.i;
+	if (i < stack->nbr / 2)
+		while (i--)
+			ra(stack);
+	else
+	{
+		i = stack->nbr - i;
+		while (i--)
+			rra(stack);
 	}
 }

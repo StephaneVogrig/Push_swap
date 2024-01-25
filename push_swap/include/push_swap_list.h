@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:09:25 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:18:19 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 17:45:29 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,18 @@ typedef struct s_pslist{
 	struct s_pslist		*next;
 }	t_pslist;
 
+typedef struct s_pslist_position{
+	int			i;
+	t_pslist	*ptr;
+
+}	t_pslist_pos;
+
 t_pslist	*ps_list_new(int n);
 void		ps_list_free(t_pslist **list);
 int			is_in_ps_list(int n, t_pslist *list);
 char		*list_to_str(t_pslist *list, const char *sep);
+
+
+t_pslist_pos	pslist_pos_init(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:13:57 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 03:25:23 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 03:33:06 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void		reverse_rotate_tests(void);
 void		ps_index_tests(void);
 void		is_sorted_tests(void);
 
+void		compute_i_tests(void);
 void		si32_to_decstr_offset_tests(void);
 
 #endif

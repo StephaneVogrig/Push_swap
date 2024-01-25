@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:15:01 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/22 22:00:32 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/24 05:05:22 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ void	push(t_psstack *stack_dest, t_psstack *stack_src)
 	stack_src->first = temp->next;
 	temp->next = stack_dest->first;
 	stack_dest->first = temp;
+	if (stack_dest->nbr == 0)
+		stack_dest->last = temp;
 	stack_dest->nbr++;
 	stack_src->nbr--;
+	if (stack_src->nbr == 0)
+		stack_src->last = NULL;
 }
 
 void	pa(t_psstack *stack_a, t_psstack *stack_b)

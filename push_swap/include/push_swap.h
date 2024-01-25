@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 03:26:53 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 04:18:09 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,21 @@ typedef struct s_psstack{
 	t_pslist	*last;
 	int			nbr;
 }	t_psstack;
+
+typedef struct s_moves{
+	int	pb;
+	int	sb;
+	int	rb;
+	int	rrb;
+	int	pa;
+	int	sa;
+	int	ra;
+	int	rra;
+	int	ss;
+	int	rr;
+	int	rrr;
+	int	nbr;
+}	t_moves;
 
 int		args_to_stack(int argc, char **argv, t_psstack *stack);
 int		arg_to_stack(char *str, t_psstack *stack);
@@ -59,7 +74,22 @@ void	ss(t_psstack *stack_a, t_psstack *stack_b);
 /* push swap index -----------------------------------------------------------*/
 void	ps_index(t_pslist *list);
 
-/* push swap index -----------------------------------------------------------*/
+/* push swap sort ------------------------------------------------------------*/
 int		is_sorted(t_psstack *stack);
+void	ps_sort_2(t_psstack *stack);
+void	ps_sort_3(t_psstack *stack);
+void	ps_sort_5(t_psstack *stack);
+int		ps_sort(t_psstack *stack);
+
+/* moves ---------------------------------------------------------------------*/
+void	moves_init(t_moves *move);
+void	move_reduce_r(t_moves *move);
+void	move_reduce_rr(t_moves *move);
+void	move_count(t_moves *move);
+void	move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
+
+/* moves b to a --------------------------------------------------------------*/
+int		compute_i(t_psstack *stack, int ref_nbr);
+void	move_b_to_a(t_psstack *stack_a, t_psstack *stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:10:10 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/24 22:47:58 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 07:08:40 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int	main(int argc, char **argv)
 			ps_sort_2(&stack);
 		else if (stack.nbr == 3)
 			ps_sort_3(&stack);
-		else if (stack.nbr < 6)
+		else if (stack.nbr)
 			ps_sort_5(&stack);
-		else
-			ok = ps_sort(&stack);
+		// else
+		// 	ps_sort(&stack);
 	}
 	if (!ok)
 		write(2, "Error\n", 6);

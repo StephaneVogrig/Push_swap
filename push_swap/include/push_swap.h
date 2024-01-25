@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 04:18:09 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 04:59:59 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int		is_sorted(t_psstack *stack);
 void	ps_sort_2(t_psstack *stack);
 void	ps_sort_3(t_psstack *stack);
 void	ps_sort_5(t_psstack *stack);
-int		ps_sort(t_psstack *stack);
+void	ps_sort(t_psstack *stack);
 
 /* moves ---------------------------------------------------------------------*/
 void	moves_init(t_moves *move);

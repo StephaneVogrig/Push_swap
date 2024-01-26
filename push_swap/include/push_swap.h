@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 16:31:59 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 20:56:19 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ void			ps_sort_2(t_psstack *stack);
 void			ps_sort_3(t_psstack *stack);
 void			ps_sort_5(t_psstack *stack);
 void			ps_sort(t_psstack *stack);
+
+/* lis -----------------------------------------------------------------------*/
+int				lis(t_psstack *stack);
 
 /* moves ---------------------------------------------------------------------*/
 void			moves_init(t_moves *move);

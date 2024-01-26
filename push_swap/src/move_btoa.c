@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:14:15 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 18:49:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 18:56:34 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,7 @@ void	compute_move_in_a(t_moves *move, int nbr, t_psstack *stack)
 {
 	int			i;
 
-	t_pslist	*current;
-
-	if (stack->nbr == 0)
-		return ;
-	i = 0;
-	current = stack->first;
-	while (current && nbr > current->nbr)
-	{
-		i++;
-		current = current->next;
-	}
-	if (i == 0)
-		i = compute_i(stack, nbr);
-
-	// i = position_insert_nbr(stack, nbr);
-
+	i = position_insert_nbr(stack, nbr);
 	if (i <= (stack->nbr / 2))
 		move->ra = i;
 	else

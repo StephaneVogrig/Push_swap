@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 03:17:39 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 18:41:56 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/26 03:18:42 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,30 +75,46 @@ void	ps_sort(t_psstack *stack_a)
 	ps_stack_init(&stack_b);
 	int			limit;
 	int			range;
+	int			i;
+	int			n;
+
 	range = stack_a->nbr / 2;
 	limit = range;
-	// while (range > 4)
-	// {
-	// 	while (stack_a->nbr > range)
-	// 	{
-	// 		if (stack_a->first->index <= limit)
-	// 		{
-	// 			pb(stack_a, &stack_b);
-	// 			if (stack_b.first->index < (limit - range / 2))
-	// 				rb(&stack_b);
-	// 		}
-	// 		else
-	// 			ra(stack_a);	
-	// 	}
-	// 	range /= 2;
-	// 	limit += range;
-	// }
+	while (range > 32)
+	{
+		i = 0;
+		n = stack_a->nbr;
+		range /= 2;
+		while (i < n)
+		{
+			// if (!stack_a->first->in_lis && !stack_a->first->next->in_lis)
+			// 	if (stack_a->first->index > stack_a->first->next->index)
+			// 		sa(stack_a);
+			
+			if (stack_a->first->in_lis || stack_a->first->index > limit)
+			{
+				if (stack_b.first && stack_b.first->index < (limit - range))
+					rr(stack_a, &stack_b);
+				else
+					ra(stack_a);
+			}
+			else
+			{
+				if (stack_b.first && stack_b.first->index < (limit - range))
+					rb(&stack_b);
+				pb(stack_a, &stack_b);
+			}
+			i++;
+		}
+		limit += range;
+	}
 	while (!is_sorted(stack_a))
 	{
-		while (stack_a->first->nbr > stack_a->last->nbr)
+		if (stack_a->first->in_lis)
 			ra(stack_a);
-		pb(stack_a, &stack_b);
-		if (stack_b.first->index < limit)
+		else
+			pb(stack_a, &stack_b);
+		if (stack_b.first && stack_b.first->index < limit)
 			rb(&stack_b);
 	}
 	move_btoa(stack_a, &stack_b);

@@ -6,7 +6,7 @@
 #    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/25 16:22:54 by svogrig          ###   ########.fr        #
+#    Updated: 2024/01/25 20:55:13 by svogrig          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ INCS		:=	include \
 
 SRC_DIR		:=	src
 
-SRCS		:=	moves.c \
+SRCS		:=	lis.c \
+				moves.c \
 				move_btoa.c \
 				operation_push.c \
 				operation_reverse_rotate.c \

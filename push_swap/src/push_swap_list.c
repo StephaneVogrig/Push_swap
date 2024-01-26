@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:05:51 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 17:50:06 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 21:59:59 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_pslist	*ps_list_new(int n)
 	if (!new)
 		return (NULL);
 	new->nbr = n;
+	new->index = 0;
+	new->in_lis = 0;
 	new->next = NULL;
 	return (new);
 }

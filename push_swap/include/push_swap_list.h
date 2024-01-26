@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 16:09:25 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 17:45:29 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/25 19:06:07 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct s_pslist{
 	int					nbr;
 	int					index;
+	int					in_lis;
 	struct s_pslist		*prev;
 	struct s_pslist		*next;
 }	t_pslist;

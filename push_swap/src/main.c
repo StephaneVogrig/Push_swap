@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:10:10 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 18:11:45 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/26 02:51:03 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int argc, char **argv)
 		return (0);
 	ps_stack_init(&stack);
 	ok = args_to_stack(argc, argv, &stack);
+	if (ok)
+		ok = lis(&stack);
 	if (ok && !is_sorted(&stack))
 	{
 		ps_index(stack.first);

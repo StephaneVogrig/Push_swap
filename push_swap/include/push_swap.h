@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 20:56:19 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/29 17:42:50 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -95,6 +95,9 @@ void			move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
 int				compute_i(t_psstack *stack, int ref_nbr);
 void			move_btoa(t_psstack *stack_a, t_psstack *stack_b);
 void			move_min_to_top(t_psstack *stack);
+
+/* moves atob ----------------------------------------------------------------*/
+void	move_atob(t_psstack *stack_a, t_psstack *stack_b);
 
 /* moves btoa ----------------------------------------------------------------*/
 t_pslist_pos	position_of_min(t_psstack *stack);

@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:21:10 by stephane          #+#    #+#             */
-/*   Updated: 2024/01/29 23:56:03 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/30 00:18:46 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -30,8 +30,8 @@ void	move_atob_ra(t_psstack *stack_a, t_psstack *stack_b, int limit)
 
 void	move_atob_limit(t_psstack *stack_a, t_psstack *stack_b, int limit, int range)
 {
-	int			i;
-	int			n;
+	int	i;
+	int	n;
 	int	median;
 	
 	median = limit - (range / 2);
@@ -49,15 +49,17 @@ void	move_atob_limit(t_psstack *stack_a, t_psstack *stack_b, int limit, int rang
 
 void	move_atob(t_psstack *stack_a, t_psstack *stack_b)
 {
-	int			limit;
-	int			range;
+	int	limit;
+	int	range;
+	int	n;
 
-	range = stack_a->nbr / 2;
+	n = stack_a->nbr;
+	range = n / 2;
 	limit = range;
 	while (range > 32)
 	{
 		move_atob_limit(stack_a, stack_b, limit, range);
-		range /= 2;
+		range = (n - limit) / 2;
 		limit += range;
 	}
 	while (!is_sorted(stack_a))

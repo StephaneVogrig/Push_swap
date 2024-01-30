@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/29 17:42:50 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:56:19 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -25,17 +25,17 @@ typedef struct s_psstack{
 }	t_psstack;
 
 typedef struct s_moves{
-	int	pb;
 	int	sb;
 	int	rb;
 	int	rrb;
-	int	pa;
 	int	sa;
 	int	ra;
 	int	rra;
 	int	ss;
 	int	rr;
 	int	rrr;
+	int	pa;
+	int	pb;
 	int	nbr;
 }	t_moves;
 
@@ -91,13 +91,19 @@ void			moves_reduce_rr(t_moves *move);
 void			moves_count(t_moves *move);
 void			move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
 
+/* moves build ---------------------------------------------------------------*/
+t_moves			move_build_ra_rb(int ra, int rb);
+t_moves 		move_build_rra_rrb(int rra, int rrb);
+t_moves 		move_build_ra_rrb(int ra, int rrb);
+t_moves 		move_build_rb_rra(int rb, int rra);
+
 /* moves btoa ----------------------------------------------------------------*/
 int				compute_i(t_psstack *stack, int ref_nbr);
 void			move_btoa(t_psstack *stack_a, t_psstack *stack_b);
 void			move_min_to_top(t_psstack *stack);
 
 /* moves atob ----------------------------------------------------------------*/
-void	move_atob(t_psstack *stack_a, t_psstack *stack_b);
+void			move_atob(t_psstack *stack_a, t_psstack *stack_b);
 
 /* moves btoa ----------------------------------------------------------------*/
 t_pslist_pos	position_of_min(t_psstack *stack);

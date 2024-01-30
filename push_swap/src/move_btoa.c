@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   move_btoa.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:14:15 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 18:56:34 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:57:25 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
@@ -48,14 +48,45 @@ void	compute_move_in_a(t_moves *move, int nbr, t_psstack *stack)
 		move->rra = stack->nbr - i;
 }
 
+t_moves	move_btoa_compute(t_psstack *stack_a, t_psstack *stack_b, \
+		int pos_in_a, int pos_in_b)
+{
+	int		max_r;
+	int		max_rr;
+	int		rra;
+	int		rrb;
+	int		min_move;
+
+	if (pos_in_a == stack_a->nbr)
+		pos_in_a = 0;
+	rra = 0;
+	if (pos_in_a)
+		rra = stack_a->nbr - pos_in_a;
+	rrb = 0;
+	if (pos_in_b)
+		rrb = stack_b->nbr - pos_in_b;
+	max_r = si32_max(pos_in_a, pos_in_b);
+	max_rr = si32_max(rra, rrb);
+	min_move = max_r;
+	if (min_move > max_rr)
+		min_move = max_rr;
+	if (min_move > pos_in_a + rrb)
+		min_move = pos_in_a + rrb;
+	if (min_move > pos_in_b + rra)
+		return (move_build_rb_rra(pos_in_b, rra));
+	if (max_r == min_move)
+		return (move_build_ra_rb(pos_in_a, pos_in_b));
+	if (max_rr == min_move)
+		return (move_build_rra_rrb(rra, rrb));
+	return (move_build_ra_rrb(pos_in_a, rrb));
+}
+
 t_moves	compute_move(t_psstack *stack_a, int stack_b_nbr, int i, int nbr)
 {
 	t_moves		move;
 	int			median;
 
 	moves_init(&move);
-	if (stack_a->nbr == 0)
-		return (move);
 	median = stack_b_nbr / 2;
 	if (i <= median)
 		move.rb = i;
@@ -79,12 +110,14 @@ static t_moves	best_move_btoa(t_psstack *stack_a, t_psstack *stack_b)
 	moves_init(&best_move);
 	if (stack_b->nbr == 0)
 		return (best_move);
-	best_move = compute_move(stack_a, stack_b->nbr, 0, stack_b->first->nbr);
+	// best_move = compute_move(stack_a, stack_b->nbr, 0, stack_b->first->nbr);
+	best_move = move_btoa_compute(stack_a, stack_b, position_insert_nbr(stack_a, stack_b->first->nbr), 0);
 	current = stack_b->first->next;
 	i = 1;
 	while (current)
 	{
-		move = compute_move(stack_a, stack_b->nbr, i, current->nbr);
+		// move = compute_move(stack_a, stack_b->nbr, i, current->nbr);
+		move = move_btoa_compute(stack_a, stack_b, position_insert_nbr(stack_a, current->nbr), i);
 		if (move.nbr < best_move.nbr)
 			best_move = move;
 		i++;

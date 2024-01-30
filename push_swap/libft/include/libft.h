@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:04:55 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:47:44 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/30 16:18:24 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -34,6 +34,7 @@ int		ft_toupper(int c);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 char	*si32_to_decstr_offset(char *str, int n);
+t_si32	si32_max(t_si32 a, t_si32 b);
 
 /* lst -----------------------------------------------------------------------*/
 typedef struct s_list
@@ -85,7 +86,5 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*strcpy_offset(char *dst, const char *src);
-
-/* unit_test -----------------------------------------------------------------*/
 
 #endif

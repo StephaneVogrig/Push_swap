@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/29 17:43:19 by stephane         ###   ########.fr        #
+#    Updated: 2024/01/30 15:53:19 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,6 +34,7 @@ SRC_DIR		:=	src
 
 SRCS		:=	lis.c \
 				moves.c \
+				moves_build.c \
 				move_atob.c \
 				move_btoa.c \
 				operation_push.c \

@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap_unit_test.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 22:13:57 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 03:33:06 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/30 19:19:30 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PUSH_SWAP_UNIT_TEST_H
 # define PUSH_SWAP_UNIT_TEST_H
@@ -44,8 +44,6 @@ void		rotate_tests(void);
 void		reverse_rotate_tests(void);
 void		ps_index_tests(void);
 void		is_sorted_tests(void);
-
-void		compute_i_tests(void);
 void		si32_to_decstr_offset_tests(void);
 
 #endif

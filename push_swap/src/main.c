@@ -6,18 +6,11 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:10:10 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 16:32:15 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/31 00:09:11 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "push_swap.h"
-#include "push_swap_unit_test.h"
-
-int	sort_ps_stack(t_psstack *stack_a)
-{
-	psut_list_print(stack_a->first, "\n", "\n");
-	return (SUCCESS);
-}
 
 int	main(int argc, char **argv)
 {

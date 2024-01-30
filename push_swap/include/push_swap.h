@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 15:56:19 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/30 19:19:45 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -98,7 +98,6 @@ t_moves 		move_build_ra_rrb(int ra, int rrb);
 t_moves 		move_build_rb_rra(int rb, int rra);
 
 /* moves btoa ----------------------------------------------------------------*/
-int				compute_i(t_psstack *stack, int ref_nbr);
 void			move_btoa(t_psstack *stack_a, t_psstack *stack_b);
 void			move_min_to_top(t_psstack *stack);
 

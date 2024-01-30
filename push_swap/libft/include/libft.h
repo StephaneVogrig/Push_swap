@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:04:55 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 16:18:24 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:42:14 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -34,6 +34,7 @@ int		ft_toupper(int c);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 char	*si32_to_decstr_offset(char *str, int n);
+t_si32	si32_min(t_si32 a, t_si32 b);
 t_si32	si32_max(t_si32 a, t_si32 b);
 
 /* lst -----------------------------------------------------------------------*/

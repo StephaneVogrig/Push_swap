@@ -1,29 +1,20 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   si32_min.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/17 17:16:11 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 19:18:35 by stephane         ###   ########.fr       */
+/*   Created: 2024/01/30 20:40:54 by stephane          #+#    #+#             */
+/*   Updated: 2024/01/30 20:42:24 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "push_swap_unit_test.h"
+#include "libft.h"
 
-int	main(void)
+t_si32	si32_min(t_si32 a, t_si32 b)
 {
-	si32_to_decstr_offset_tests();
-	ps_list_new_tests();
-	psut_list_to_str_tests();
-	number_to_stack_tests();
-	arg_to_stack_tests();
-	push_tests();
-	reverse_rotate_tests();
-	rotate_tests();
-	swap_head_tests();
-	ps_index_tests();
-	is_sorted_tests();
-	return (0);
+	if (a > b)
+		return (b);
+	return (a);	
 }

@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 02:59:52 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/30 16:15:42 by stephane         ###   ########.fr        #
+#    Updated: 2024/01/30 20:43:31 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,6 +28,7 @@ SRCS 		:=	char/ft_isalnum.c\
 				char/ft_tolower.c \
 				int/ft_atoi.c \
 				int/ft_itoa.c \
+				int/si32_min.c \
 				int/si32_max.c \
 				int/si32_to_decstr_offset.c \
 				lst/ft_lstadd_back.c \

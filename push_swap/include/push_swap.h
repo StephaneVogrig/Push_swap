@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 19:19:45 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/31 05:18:25 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -66,7 +66,7 @@ void			rb(t_psstack *stack_b);
 void			rr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion swap -------------------------------------------------------------*/
-void			swap_head(t_psstack *stack);
+void			swap(t_psstack *stack);
 void			sa(t_psstack *stack_a);
 void			sb(t_psstack *stack_b);
 void			ss(t_psstack *stack_a, t_psstack *stack_b);
@@ -107,5 +107,11 @@ void			move_atob(t_psstack *stack_a, t_psstack *stack_b);
 /* moves btoa ----------------------------------------------------------------*/
 t_pslist_pos	position_of_min(t_psstack *stack);
 int				position_insert_nbr(t_psstack *stack, int nbr);
+t_moves			best_move_btoa(t_psstack *stack_a, t_psstack *stack_b);
+t_moves			move_btoa_compute(t_psstack *stack_a, t_psstack *stack_b, \
+				int pos_in_a, int pos_in_b);
+
+
+void	move_btoa_deep(t_psstack *stack_a, t_psstack *stack_b);
 
 #endif

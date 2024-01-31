@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   lis.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:00:35 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/26 01:10:32 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/01/31 03:30:06 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
@@ -89,6 +89,7 @@ void	lis_to_stack(t_psstack *stack, int *m, int len)
 		// ft_printf("\n");
 		// ft_printf("\n", current->nbr);
 }
+
 void	lis_to_index(int i, int *m, int *p)
 {
 	int	k;
@@ -159,14 +160,15 @@ int	lis(t_psstack *stack)
 	x = malloc(sizeof(int) * stack->nbr);
 	m = malloc(sizeof(int) * (stack->nbr + 1));
 	if (p && m && x)
+	{
 		lis_compute(stack, p, m, x);
+		return (SUCCESS);
+	}
 	if (p)
 		free(p);
 	if (m)
 		free(m);
 	if (x)
 		free(x);
-	if (p && m && x)
-		return (SUCCESS);
 	return (ERROR);
 }

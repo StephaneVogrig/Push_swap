@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 19:14:15 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/31 00:10:50 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/31 04:10:36 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -41,7 +41,7 @@ t_moves	move_btoa_compute(t_psstack *stack_a, t_psstack *stack_b, \
 	return (move_build_ra_rrb(pos_in_a, rrb));
 }
 
-static t_moves	best_move_btoa(t_psstack *stack_a, t_psstack *stack_b)
+t_moves	best_move_btoa(t_psstack *stack_a, t_psstack *stack_b)
 {
 	t_pslist	*current;
 	int			i;

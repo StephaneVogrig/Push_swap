@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 03:17:39 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/29 17:29:12 by stephane         ###   ########.fr       */
+/*   Updated: 2024/01/31 05:45:02 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -75,5 +75,6 @@ void	ps_sort(t_psstack *stack_a)
 	ps_stack_init(&stack_b);
 	move_atob(stack_a, &stack_b);
 	move_btoa(stack_a, &stack_b);
+	// move_btoa_deep(stack_a, &stack_b);
 	move_min_to_top(stack_a);;
 }

@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/31 00:09:31 by stephane         ###   ########.fr        #
+#    Updated: 2024/01/31 03:59:23 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -37,6 +37,7 @@ SRCS		:=	lis.c \
 				moves_build.c \
 				move_atob.c \
 				move_btoa.c \
+				move_btoa_deep.c \
 				operation_push.c \
 				operation_reverse_rotate.c \
 				operation_rotate.c \

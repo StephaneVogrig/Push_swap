@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 02:59:52 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/30 20:43:31 by stephane         ###   ########.fr        #
+#    Updated: 2024/02/01 18:15:42 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -67,6 +67,8 @@ SRCS 		:=	char/ft_isalnum.c\
 				str/ft_strtrim.c \
 				str/ft_substr.c \
 				str/strcpy_offset.c \
+				tabsi32/tabsi32_init.c \
+				tabsi32/tabsi32_print.c \
 				ft_printf/ft_printf.c \
 				ft_printf/buffer.c \
 				ft_printf/format_c.c \
@@ -119,7 +121,7 @@ $(NAME) : $(OBJS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -g -c -o $@ $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info created: $@)
 
 -include $(DEPS)

@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 19:19:45 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:12:38 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -47,6 +47,7 @@ char			*number_to_stack(char *str, t_psstack *stack);
 void			ps_stack_init(t_psstack	*stack);
 int				ps_stack_add(int n, t_psstack *stack);
 void			ps_stack_free(t_psstack *stack);
+void			ps_stack_to_array(t_psstack *stack, int *x);
 
 /* opertion push -------------------------------------------------------------*/
 void			push(t_psstack *stack_1, t_psstack *stack_2);

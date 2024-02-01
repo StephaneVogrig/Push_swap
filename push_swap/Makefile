@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/01/31 00:09:31 by stephane         ###   ########.fr        #
+#    Updated: 2024/02/01 17:56:06 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -109,7 +109,7 @@ $(LIBS_TARGET):
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -g -c -o $@ $< 
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< 
 	$(info created: $@)
 
 -include $(DEPS) $(UT_DEPS)

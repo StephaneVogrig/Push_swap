@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:00:35 by svogrig           #+#    #+#             */
-/*   Updated: 2024/02/01 17:11:40 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:36:10 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -47,6 +47,7 @@ void	lis_to_stack(t_psstack *stack, int *m, int len)
 		m++;
 	}
 }
+
 void	lis_to_index(int i, int *m, int *p)
 {
 	int	k;

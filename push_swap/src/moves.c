@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   moves.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 21:30:56 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/25 15:37:52 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/02/01 18:50:13 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
@@ -84,24 +84,24 @@ void	moves_count(t_moves *move)
 
 void	move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b)
 {
-	while (move->sa--)
-		sa(stack_a);
+	while (move->rr--)
+		rr(stack_a, stack_b);
+	while (move->rrr--)
+		rrr(stack_a, stack_b);
 	while (move->ra--)
 		ra(stack_a);
 	while (move->rra--)
 		rra(stack_a);
-	while (move->sb--)
-		sb(stack_b);
 	while (move->rb--)
 		rb(stack_b);
 	while (move->rrb--)
 		rrb(stack_b);
 	while (move->ss--)
 		ss(stack_a, stack_b);
-	while (move->rr--)
-		rr(stack_a, stack_b);
-	while (move->rrr--)
-		rrr(stack_a, stack_b);
+	while (move->sa--)
+		sa(stack_a);
+	while (move->sb--)
+		sb(stack_b);
 	while (move->pa--)
 		pa(stack_a, stack_b);
 	while (move->pb--)

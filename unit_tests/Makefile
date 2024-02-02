@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/02/02 19:46:20 by stephane         ###   ########.fr        #
+#    Updated: 2024/02/02 20:28:28 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,13 +16,12 @@
 
 INCS		:=	include
 
-DIR_SRC		:=	src
 DIR_BUILD	:=	.build
 
 # variables libraries ---------------------------------------------------------#
 
 LIBS		:=	ft
-LIBFT_DIR	:=	libft
+LIBFT_DIR	:=	../push_swap/libft
 LIBS_TARGET	:=	$(LIBFT_DIR)/libft.a
 
 LDFLAGS		:=	$(addprefix -L,$(dir $(LIBS_TARGET)))
@@ -30,11 +29,39 @@ LDLIBS		:=	$(addprefix -l,$(LIBS))
 
 INCS		:=	$(INCS) $(LIBFT_DIR)/include
 
+# unit tests -------------------------------------------------------------------#
+
+NAME        :=  unit_tests
+
+DIR_SRC		:=	src
+
+SRCS		:=	main.c \
+				psut_data.c \
+				psut_list_utils.c \
+				tests/arg_to_stack_tests.c \
+				tests/ps_list_new_tests.c \
+				tests/number_to_stack_tests.c \
+				tests/si32_to_decstr_offset_tests.c \
+				tests/psut_list_to_str_tests.c \
+				tests/swap_head_tests.c \
+				tests/push_tests.c \
+				tests/reverse_rotate_tests.c \
+				tests/rotate_tests.c \
+				tests/is_sorted_tests.c \
+				tests/ps_index_tests.c
+				
+SRCS		:=	$(SRCS:%=$(DIR_SRC)/%)
+OBJS		:=	$(SRCS:%.c=$(DIR_BUILD)/%.o)
+
+DEPS		:=	$(OBJS:.o=.d)
+
 # push swap -------------------------------------------------------------------#
 
-NAME        :=  push_swap
+DIR_PS		:=	../push_swap/src
 
-SRCS		:=	lis.c \
+INCS		:=	$(INCS) ../push_swap/include
+
+SRCS_PS		:=	lis.c \
 				moves.c \
 				moves_build.c \
 				move_atob.c \
@@ -50,24 +77,11 @@ SRCS		:=	lis.c \
 				index.c \
 				sort.c
 
-PS_SRCS		:=	main.c $(SRCS)
-PS_SRCS		:=	$(PS_SRCS:%=$(DIR_SRC)/%)
+SRCS_PS		:=	$(SRCS_PS:%=$(DIR_PS)/%)
 
-OBJS		:=	$(PS_SRCS:$(DIR_SRC)/%.c=$(DIR_BUILD)/%.o)
+OBJS_PS		:=	$(SRCS_PS:%.c=$(DIR_BUILD)/%.o)
 
-DEPS		:=	$(OBJS:.o=.d)
-
-# bonus ------------------------------------------------------------------------#
-
-NAME_BONUS	:=	checker
-
-SRCS_BONUS	:=	main_bonus.c
-SRCS_BONUS	:=	$(SRCS) $(SRCS_BONUS)
-SRCS_BONUS	:=	$(SRCS_BONUS:%=$(SRC_DIR)/%)
-
-OBJS_BONUS	:=	$(SRCS_BONUS:$(SRC_DIR)/%.c=$(DIR_BUILD)/%.o)
-
-DEPS_BONUS	:=	$(OBJS_BONUS:.o=.d)
+DEPS_PS		:=	$(OBJS_PS:.o=.d)
 
 # compilation -----------------------------------------------------------------#
 CC			:=	cc
@@ -85,34 +99,28 @@ DIR_DUP		=	mkdir -p $(@D)
 
 all: $(NAME)
 
-bonus: $(NAME_BONUS)
-
-$(NAME): $(OBJS) $(LIBS_TARGET)
-	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS) $(LDLIBS)
+$(NAME): $(OBJS) $(OBJS_PS) $(LIBS_TARGET)
+	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS) $(OBJS_PS) $(LDLIBS)
 	$(info created: $(NAME))
 
-$(NAME_BONUS): $(OBJS_BONUS) $(LIBS_TARGET)
-	$(CC) $(LDFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LDLIBS)
-	$(info created: $(NAME_BONUS))
-	
 $(LIBS_TARGET):
 	$(MAKE) -C $(@D)
 
-$(DIR_BUILD)/%.o: $(DIR_SRC)/%.c
+$(DIR_BUILD)/%.o: %.c
 	$(DIR_DUP)
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< 
 	$(info created: $@)
 
--include $(DEPS) $(DEPS_BONUS)
+-include $(DEPS) $(DEPS_PS)
 
 clean:
 	$(MAKE) -C $(dir $(LIBS_TARGET)) clean
 	$(RM) $(OBJS) $(DEPS) 
-	$(RM) $(OBJS_BONUS) $(DEPS_BONUS)
+	$(RM) $(OBJS_PS) $(DEPS_PS)
 
 fclean: clean
 	$(MAKE) -C $(dir $(LIBS_TARGET)) fclean
-	$(RM) $(NAME) $(NAME_BONUS)
+	$(RM) $(NAME) $(UT_NAME)
 
 re:
 	$(MAKE) fclean

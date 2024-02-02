@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/13 12:30:17 by svogrig           #+#    #+#              #
-#    Updated: 2024/02/02 15:10:41 by stephane         ###   ########.fr        #
+#    Updated: 2024/02/02 15:02:57 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,22 @@ LDFLAGS		:=	$(addprefix -L,$(dir $(LIBS_TARGET)))
 LDLIBS		:=	$(addprefix -l,$(LIBS))
 
 #------------------------------------------------------------------------------#
-# variables                                                                    #
+# variables globals                                                            #
+#------------------------------------------------------------------------------#
+
+BUILD_DIR	:=	.build
+
+CC			:=	cc
+
+CFLAGS		:=	-Wall -Wextra -Werror
+CPPFLAGS	:=	$(addprefix -I,$(INCS)) -MMD -MP
+
+RM          :=	rm -f
+MAKEFLAGS   +=	--no-print-directory
+DIR_DUP		=	mkdir -p $(@D)
+
+#------------------------------------------------------------------------------#
+# variables push_swap                                                          #
 #------------------------------------------------------------------------------#
 
 NAME        :=  push_swap
@@ -51,10 +66,37 @@ SRCS		:=	lis.c \
 PS_SRCS		:=	main.c $(SRCS)
 PS_SRCS		:=	$(PS_SRCS:%=$(SRC_DIR)/%)
 
-UT_NAME		:=	$(NAME)_unitest
-UT_SRCS_DIR	:= 	unitest
+OBJS		:=	$(PS_SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-UT_SRCS		:=	main.c \
+DEPS		:=	$(OBJS:.o=.d)
+
+# variables checker -----------------------------------------------------------#
+NAME_BONUS	:=	checker
+
+SRCS_BONUS	:=	main_bonus.c \
+				operation_push.c \
+				operation_reverse_rotate.c \
+				operation_rotate.c \
+				operation_swap.c \
+				parsing.c \
+				push_swap_list.c \
+				stack.c
+
+SRCS_BONUS	:=	$(SRCS_BONUS:%=$(SRC_DIR)/%)
+
+OBJS_BONUS	:=	$(SRCS_BONUS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+
+DEPS_BONUS	:=	$(OBJS_BONUS:.o=.d)
+
+#------------------------------------------------------------------------------#
+# variables unit test                                                          #
+#------------------------------------------------------------------------------#
+
+NAME_UT		:=	$(NAME)_unitest
+
+SRCS_UT_DIR	:= 	unitest
+
+SRCS_UT		:=	main.c \
 				psut_data.c \
 				tests/arg_to_stack_tests.c \
 				tests/ps_list_new_tests.c \
@@ -68,25 +110,13 @@ UT_SRCS		:=	main.c \
 				tests/is_sorted_tests.c \
 				tests/ps_index_tests.c
 
-UT_SRCS		:=	$(UT_SRCS:%=$(UT_SRCS_DIR)/%)
-UT_SRCS		:=	$(SRCS) $(UT_SRCS) 
-UT_SRCS		:=	$(UT_SRCS:%=$(SRC_DIR)/%)
+SRCS_UT		:=	$(SRCS_UT:%=$(SRCS_UT_DIR)/%)
+SRCS_UT		:=	$(SRCS) $(SRCS_UT) 
+SRCS_UT		:=	$(SRCS_UT:%=$(SRC_DIR)/%)
 
-BUILD_DIR	:=	.build
-OBJS		:=	$(PS_SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
-UT_OBJS		:=	$(UT_SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+OBJS_UT		:=	$(SRCS_UT:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
-DEPS		:=	$(OBJS:.o=.d)
-UT_DEPS		:=	$(UT_OBJS:.o=.d)
-
-CC			:=	cc
-
-CFLAGS		:=	-Wall -Wextra -Werror
-CPPFLAGS	:=	$(addprefix -I,$(INCS)) -MMD -MP
-
-RM          :=	rm -f
-MAKEFLAGS   +=	--no-print-directory
-DIR_DUP		=	mkdir -p $(@D)
+DEPS_UT		:=	$(OBJS_UT:.o=.d)
 
 #------------------------------------------------------------------------------#
 # rules                                                                        #
@@ -94,15 +124,21 @@ DIR_DUP		=	mkdir -p $(@D)
 
 all: $(NAME)
 
+bonus: $(NAME_BONUS)
+
+unitest: $(NAME_UT)
+
 $(NAME): $(OBJS) $(LIBS_TARGET)
 	$(CC) $(LDFLAGS) -o $(NAME) $(OBJS) $(LDLIBS)
 	$(info created: $(NAME))
+	
+$(NAME_BONUS): $(OBJS_BONUS) $(LIBS_TARGET)
+	$(CC) $(LDFLAGS) -o $(NAME_BONUS) $(OBJS_BONUS) $(LDLIBS)
+	$(info created: $(NAME_BONUS))
 
-unitest: $(UT_NAME)
-
-$(UT_NAME): $(UT_OBJS) $(LIBS_TARGET)
-	$(CC) $(LDFLAGS) -o $(UT_NAME) $(UT_OBJS) $(LDLIBS)
-	$(info created: $(UT_NAME))
+$(NAME_UT): $(OBJS_UT) $(LIBS_TARGET)
+	$(CC) $(LDFLAGS) -o $(NAME_UT) $(OBJS_UT) $(LDLIBS)
+	$(info created: $(NAME_UT))
 
 $(LIBS_TARGET):
 	$(MAKE) -C $(@D)
@@ -112,17 +148,17 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $< 
 	$(info created: $@)
 
--include $(DEPS) $(UT_DEPS)
-
+-include $(DEPS) $(DEPS_BONUS) $(DEPS_UT)
 
 clean:
 	$(MAKE) -C $(dir $(LIBS_TARGET)) clean
 	$(RM) $(OBJS) $(DEPS) 
-	$(RM) $(UT_OBJS) $(UT_DEPS)
+	$(RM) $(OBJS_BONUS) $(DEPS_BONUS) 
+	$(RM) $(OBJS_UT) $(DEPS_UT)
 
 fclean: clean
 	$(MAKE) -C $(dir $(LIBS_TARGET)) fclean
-	$(RM) $(NAME) $(UT_NAME)
+	$(RM) $(NAME) $(NAME_UT)
 
 re:
 	$(MAKE) fclean
@@ -132,7 +168,7 @@ run: all
 	-./$(NAME)
 
 run_unitest: unitest
-	-./$(UT_NAME)
+	-./$(NAME_UT)
 
 #------------------------------------------------------------------------------#
 # specifications                                                               #

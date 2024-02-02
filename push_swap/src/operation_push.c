@@ -1,23 +1,23 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   operation_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:15:01 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/24 05:05:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:28:05 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 
-void	push(t_psstack *stack_dest, t_psstack *stack_src)
+int	push(t_psstack *stack_dest, t_psstack *stack_src)
 {
 	t_pslist	*temp;
 
 	if (stack_src->nbr == 0)
-		return ;
+		return (SUCCESS);
 	temp = stack_src->first;
 	stack_src->first = temp->next;
 	temp->next = stack_dest->first;
@@ -28,6 +28,7 @@ void	push(t_psstack *stack_dest, t_psstack *stack_src)
 	stack_src->nbr--;
 	if (stack_src->nbr == 0)
 		stack_src->last = NULL;
+	return (SUCCESS);
 }
 
 void	pa(t_psstack *stack_a, t_psstack *stack_b)

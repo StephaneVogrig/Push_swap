@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/02/01 17:12:38 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/02 12:34:55 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -50,24 +50,27 @@ void			ps_stack_free(t_psstack *stack);
 void			ps_stack_to_array(t_psstack *stack, int *x);
 
 /* opertion push -------------------------------------------------------------*/
-void			push(t_psstack *stack_1, t_psstack *stack_2);
+int				push(t_psstack *stack_1, t_psstack *stack_2);
 void			pa(t_psstack *stack_a, t_psstack *stack_b);
 void			pb(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion reverse rotate ---------------------------------------------------*/
-void			reverse_rotate(t_psstack *stack);
+int				reverse_rotate(t_psstack *stack);
+int				reverse_rotate_r(t_psstack *stack_a, t_psstack *stack_b);
 void			rra(t_psstack *stack_a);
 void			rrb(t_psstack *stack_b);
 void			rrr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion rotate -----------------------------------------------------------*/
-void			rotate(t_psstack *stack);
+int				rotate(t_psstack *stack);
+int				rotate_r(t_psstack *stack_a, t_psstack *stack_b);
 void			ra(t_psstack *stack_a);
 void			rb(t_psstack *stack_b);
 void			rr(t_psstack *stack_a, t_psstack *stack_b);
 
 /* opertion swap -------------------------------------------------------------*/
-void			swap_head(t_psstack *stack);
+int				swap(t_psstack *stack);
+int				swap_s(t_psstack *stack_a, t_psstack *stack_b);
 void			sa(t_psstack *stack_a);
 void			sb(t_psstack *stack_b);
 void			ss(t_psstack *stack_a, t_psstack *stack_b);

@@ -6,7 +6,7 @@
 /*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:04:55 by svogrig           #+#    #+#             */
-/*   Updated: 2024/02/01 17:13:14 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:32:34 by stephane         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -20,6 +20,7 @@
 # include "ft_constant.h"
 # include "ft_printf.h"
 # include "unit_test.h"
+# include "get_next_line.h"
 
 /* char ----------------------------------------------------------------------*/
 int			ft_isalnum(int c);

@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   swap_head_tests.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 04:45:25 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/23 00:07:22 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/02/01 19:22:17 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap_unit_test.h"
 
@@ -39,7 +39,7 @@ static void	print_test(char *input, char *expected)
 	ps_stack_init(&stack);
 	if (!arg_to_stack(input, &stack))
 		return ;
-	swap_head(&stack);
+	swap(&stack);
 	print_test_2(input, expected, stack);
 	ps_stack_free(&stack);
 	unit_test(increase_tests);

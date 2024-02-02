@@ -6,7 +6,7 @@
 #    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 02:59:52 by svogrig           #+#    #+#              #
-#    Updated: 2024/02/01 18:15:42 by stephane         ###   ########.fr        #
+#    Updated: 2024/02/02 13:31:51 by stephane         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -89,7 +89,8 @@ SRCS 		:=	char/ft_isalnum.c\
 				ft_printf/spec_str_to_int.c \
 				ft_printf/ui64_to_str.c \
 				ft_printf/vs_10pow.c \
-				unit_test/unit_test.c
+				unit_test/unit_test.c \
+				get_next_line.c
 
 SRCS		:=	$(SRCS:%=$(SRC_DIR)/%)
 

@@ -6,11 +6,18 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 19:00:35 by svogrig           #+#    #+#             */
-/*   Updated: 2024/02/05 00:39:33 by svogrig          ###   ########.fr       */
+/*   Updated: 2024/02/05 12:36:17 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/* 
+** lis = Longest_increasing_subsequence
+** The algorithm in this document is an implementation of
+** the efficient algorithm found in
+** https://en.wikipedia.org/wiki/Longest_increasing_subsequence
+*/
 
 int	lo_compute(int hi, int *x, int *m, int i)
 {

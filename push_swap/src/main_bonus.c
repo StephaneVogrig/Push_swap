@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 18:56:21 by stephane          #+#    #+#             */
-/*   Updated: 2024/02/02 17:15:24 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:36:05 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -42,7 +42,7 @@ int	do_operation(char *op, t_psstack *stack_a, t_psstack *stack_b)
 int	run_checker(t_psstack *stack_a, t_psstack *stack_b)
 {
 	char	*operation;
-	
+
 	operation = get_next_line(0);
 	while (operation)
 	{

@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   position_in_list.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 12:26:25 by svogrig           #+#    #+#             */
-/*   Updated: 2024/01/30 17:03:58 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:42:44 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -29,7 +29,7 @@ t_pslist_pos	position_of_min(t_psstack *stack)
 	while (current)
 	{
 		i++;
-		if ( current->nbr < min_nbr)
+		if (current->nbr < min_nbr)
 		{
 			min.i = i;
 			min.ptr = current;
@@ -50,7 +50,7 @@ int	position_insert_nbr(t_psstack *stack, int nbr)
 	i = 0;
 	current = stack->first;
 	while (i < min.i && nbr > current->nbr)
-	{		
+	{
 		i++;
 		current = current->next;
 	}
@@ -63,7 +63,7 @@ int	position_insert_nbr(t_psstack *stack, int nbr)
 		i++;
 		current = current->next;
 	}
-	// if (i == stack->nbr)
-	// 	i = 0;
+	if (i == stack->nbr)
+		i = 0;
 	return (i);
 }

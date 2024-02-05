@@ -1,20 +1,18 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 23:41:30 by svogrig           #+#    #+#             */
-/*   Updated: 2024/02/02 12:34:55 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:08:26 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
-# include <unistd.h>
 # include "libft.h"
 # include "push_swap_list.h"
 
@@ -97,9 +95,9 @@ void			move_do(t_moves *move, t_psstack *stack_a, t_psstack *stack_b);
 
 /* moves build ---------------------------------------------------------------*/
 t_moves			move_build_ra_rb(int ra, int rb);
-t_moves 		move_build_rra_rrb(int rra, int rrb);
-t_moves 		move_build_ra_rrb(int ra, int rrb);
-t_moves 		move_build_rb_rra(int rb, int rra);
+t_moves			move_build_rra_rrb(int rra, int rrb);
+t_moves			move_build_ra_rrb(int ra, int rrb);
+t_moves			move_build_rb_rra(int rb, int rra);
 
 /* moves btoa ----------------------------------------------------------------*/
 void			move_btoa(t_psstack *stack_a, t_psstack *stack_b);

@@ -1,20 +1,20 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   moves_build.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 15:41:46 by stephane          #+#    #+#             */
-/*   Updated: 2024/01/30 18:49:38 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:24:29 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_moves move_build_ra_rb(int ra, int rb)
+t_moves	move_build_ra_rb(int ra, int rb)
 {
-	t_moves move;
+	t_moves	move;
 
 	moves_init(&move);
 	if (ra > rb)
@@ -34,9 +34,9 @@ t_moves move_build_ra_rb(int ra, int rb)
 	return (move);
 }
 
-t_moves move_build_rra_rrb(int rra, int rrb)
+t_moves	move_build_rra_rrb(int rra, int rrb)
 {
-	t_moves move;
+	t_moves	move;
 
 	moves_init(&move);
 	if (rra > rrb)
@@ -56,9 +56,9 @@ t_moves move_build_rra_rrb(int rra, int rrb)
 	return (move);
 }
 
-t_moves move_build_ra_rrb(int ra, int rrb)
+t_moves	move_build_ra_rrb(int ra, int rrb)
 {
-	t_moves move;
+	t_moves	move;
 
 	moves_init(&move);
 	move.ra = ra;
@@ -68,9 +68,9 @@ t_moves move_build_ra_rrb(int ra, int rrb)
 	return (move);
 }
 
-t_moves move_build_rb_rra(int rb, int rra)
+t_moves	move_build_rb_rra(int rb, int rra)
 {
-	t_moves move;
+	t_moves	move;
 
 	moves_init(&move);
 	move.rra = rra;

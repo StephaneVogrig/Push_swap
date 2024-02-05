@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   move_atob.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 17:21:10 by stephane          #+#    #+#             */
-/*   Updated: 2024/01/30 00:18:46 by stephane         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:43:27 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -19,21 +19,21 @@ void	move_atob_pb(t_psstack *stack_a, t_psstack *stack_b, int limit)
 	pb(stack_a, stack_b);
 }
 
-
 void	move_atob_ra(t_psstack *stack_a, t_psstack *stack_b, int limit)
 {
 	if (stack_b->first && stack_b->first->index < limit)
 		rr(stack_a, stack_b);
 	else
-		ra(stack_a);	
+		ra(stack_a);
 }
 
-void	move_atob_limit(t_psstack *stack_a, t_psstack *stack_b, int limit, int range)
+void	move_atob_limit(t_psstack *stack_a, t_psstack *stack_b, \
+		int limit, int range)
 {
 	int	i;
 	int	n;
 	int	median;
-	
+
 	median = limit - (range / 2);
 	n = stack_a->nbr;
 	i = 0;
